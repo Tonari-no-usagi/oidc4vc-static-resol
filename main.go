@@ -79,8 +79,11 @@ func runBuild() error {
 			})
 		}
 		issuerMeta.CredentialConfigurationsSupported[configID] = oidc4vc.CredentialConfiguration{
-			Format:  d.Format,
-			Display: displays,
+			Format:                               d.Format,
+			VCT:                                  d.VCT,
+			CryptographicBindingMethodsSupported: []string{"jwk"},
+			CredentialSigningAlgorithmsSupported: []string{"ES256"},
+			Display:                              displays,
 		}
 	}
 
@@ -134,7 +137,30 @@ func runBuild() error {
 		return err
 	}
 
-	// 6. index.html の生成
+	// 6. offer.json の生成 (QRコードの短縮と MIME Type 対策)
+	type PreAuthGrant struct {
+		PreAuthorizedCode string `json:"pre-authorized_code"`
+	}
+	type OfferGrants struct {
+		PreAuth PreAuthGrant `json:"urn:ietf:params:oauth:grant-type:pre-authorized_code"`
+	}
+	type CredentialOffer struct {
+		CredentialIssuer           string      `json:"credential_issuer"`
+		CredentialConfigurationIDs []string    `json:"credential_configuration_ids"`
+		Grants                     OfferGrants `json:"grants"`
+	}
+	offer := CredentialOffer{
+		CredentialIssuer:           cfg.IssuerURL,
+		CredentialConfigurationIDs: []string{"UniversityDegree"},
+		Grants: OfferGrants{
+			PreAuth: PreAuthGrant{PreAuthorizedCode: "20260113-PRE-AUTH-DEMO"},
+		},
+	}
+	if err := writeJSON(filepath.Join("public", "offer.json"), offer); err != nil {
+		return err
+	}
+
+	// 7. index.html の生成
 	if err := generator.GenerateHTML(filepath.Join("public", "index.html"), cfg.IssuerURL); err != nil {
 		return err
 	}

@@ -29,22 +29,12 @@ const htmlTemplate = `<!DOCTYPE html>
     </div>
     <script>
         const issuer = "%s";
-        const credentialConfigurationId = "UniversityDegree";
         
-        // 最新の Credential Offer 形式 (Draft 13)
-        const credentialOffer = {
-            credential_issuer: issuer,
-            credential_configuration_ids: [credentialConfigurationId],
-            grants: {
-                "urn:ietf:params:oauth:grant-type:pre-authorized_code": {
-                    "pre-authorized_code": "TODO_RANDOM_CODE_OR_MOCK",
-                    "user_pin_required": false // 下位互換性のため
-                }
-            }
-        };
+        // 最新の Credential Offer 方式 (Draft 13) - URI 参照方式
+        // offer.json は GitHub Pages 上で application/json として配信されるため互換性が高い
+        const offerUri = issuer + "/offer.json";
+        const offerUrl = "openid-credential-offer://?credential_offer_uri=" + encodeURIComponent(offerUri);
 
-        const offerJson = JSON.stringify(credentialOffer);
-        const offerUrl = "openid-credential-offer://?credential_offer=" + encodeURIComponent(offerJson);
         document.getElementById('btn-link').href = offerUrl;
 
         QRCode.toCanvas(document.getElementById('qrcode'), offerUrl, { width: 256 }, function (error) {

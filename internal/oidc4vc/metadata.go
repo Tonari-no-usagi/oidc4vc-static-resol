@@ -21,6 +21,7 @@ type AuthServerMetadata struct {
 
 type CredentialConfiguration struct {
 	Format                               string           `json:"format"`
+	VCT                                  string           `json:"vct,omitempty"` // vc+sd-jwt の場合に必要
 	CryptographicBindingMethodsSupported []string         `json:"cryptographic_binding_methods_supported,omitempty"`
 	CredentialSigningAlgorithmsSupported []string         `json:"credential_signing_algorithms_supported,omitempty"`
 	Display                              []Display        `json:"display,omitempty"`

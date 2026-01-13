@@ -8,10 +8,11 @@ type Config struct {
 
 // CredentialDefinition は発行する資格情報の定義を保持します。
 type CredentialDefinition struct {
-	ID                                  string    `yaml:"id"`
-	Format                              string    `yaml:"format"`
-	CryptographicBindingMethodsSupported []string `yaml:"cryptographic_binding_methods_supported"`
-	Display                             []Display `yaml:"display"`
+	ID                                   string    `yaml:"id"`
+	Format                               string    `yaml:"format"`
+	VCT                                  string    `yaml:"vct"`
+	CryptographicBindingMethodsSupported []string  `yaml:"cryptographic_binding_methods_supported"`
+	Display                              []Display `yaml:"display"`
 }
 
 // Display は資格情報の表示に関する情報を保持します。
