@@ -5,7 +5,7 @@
   ],
   "grants": {
     "urn:ietf:params:oauth:grant-type:pre-authorized_code": {
-      "pre-authorized_code": "20260113-PRE-AUTH-DEMO"
+      "pre-authorized_code": "DEMO-AUTH-CODE-2026"
     }
   }
 }

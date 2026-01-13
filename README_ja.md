@@ -2,9 +2,16 @@
 
 [English version (英語版)](README.md)
 
-## 概要
+- **5分でVC発行**: GitHub Pages への Push だけで VC 発行サーバーが完成します。
+- **最新規格準拠**: OIDC4VCI (Draft 13+) / SD-JWT VC / did:web に対応。
 
-OpenID4VCI (Issuance) および OpenID4VP (Presentation) の規格に準拠したメタデータと、事前署名済み SD-JWT Verifiable Credential (VC) を GitHub Pages 上に生成・配置するための CLI ツール（`oidc4gen`）です。サーバーレスな「VC発行デモサイト」を数分で構築することを可能にします。
+## デモ
+実際にデプロイされたデモサイトはこちらです：
+[https://tonari-no-usagi.github.io/oidc4vc-static-resol/](https://tonari-no-usagi.github.io/oidc4vc-static-resol/)
+
+## 動作確認済みウォレット
+以下のウォレットアプリで正常な VC 発行・表示を確認しています。
+- **Lissi ID-Wallet** (iOS/Android)
 
 ## 主要機能
 

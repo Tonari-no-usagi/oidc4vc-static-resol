@@ -138,6 +138,7 @@ func runBuild() error {
 	}
 
 	// 6. offer.json の生成 (QRコードの短縮と MIME Type 対策)
+	const preAuthCode = "DEMO-AUTH-CODE-2026"
 	type PreAuthGrant struct {
 		PreAuthorizedCode string `json:"pre-authorized_code"`
 	}
@@ -153,7 +154,7 @@ func runBuild() error {
 		CredentialIssuer:           cfg.IssuerURL,
 		CredentialConfigurationIDs: []string{"UniversityDegree"},
 		Grants: OfferGrants{
-			PreAuth: PreAuthGrant{PreAuthorizedCode: "20260113-PRE-AUTH-DEMO"},
+			PreAuth: PreAuthGrant{PreAuthorizedCode: preAuthCode},
 		},
 	}
 	if err := writeJSON(filepath.Join("public", "offer.json"), offer); err != nil {

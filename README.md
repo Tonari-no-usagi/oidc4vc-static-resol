@@ -2,9 +2,16 @@
 
 [Japanese version (日本語版)](README_ja.md)
 
-## Overview
+- **5-Minute VC Issuance**: Build a VC issuing server just by pushing to GitHub Pages.
+- **Latest Standards**: Supports OIDC4VCI (Draft 13+) / SD-JWT VC / did:web.
 
-A CLI tool (`oidc4gen`) designed to generate and deploy OpenID4VCI (Issuance) and OpenID4VP (Presentation) compliant metadata and pre-signed SD-JWT Verifiable Credentials (VCs) on GitHub Pages. This project enables the setup of a serverless "VC Issuance Demo Site" in just a few minutes.
+## Demo
+You can see our live demo site here:
+[https://tonari-no-usagi.github.io/oidc4vc-static-resol/](https://tonari-no-usagi.github.io/oidc4vc-static-resol/)
+
+## Tested Wallets
+Successfully verified with the following wallet apps:
+- **Lissi ID-Wallet** (iOS/Android)
 
 ## Core Features
 
