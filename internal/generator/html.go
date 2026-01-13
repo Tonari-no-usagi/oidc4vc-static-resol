@@ -23,7 +23,7 @@ const htmlTemplate = `<!DOCTYPE html>
     <div class="card">
         <h1>VC発行デモ</h1>
         <p>ウォレットアプリで以下のQRコードをスキャンして、<br>デジタル資格情報を取得してください。</p>
-        <div id="qrcode"></div>
+        <canvas id="qrcode"></canvas>
         <p><small>Issuer: %s</small></p>
         <a href="%s" class="btn">直接リンクを開く (モバイル用)</a>
     </div>
