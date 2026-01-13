@@ -101,8 +101,17 @@ func runBuild() error {
 		return fmt.Errorf("failed to sign VC: %w", err)
 	}
 
-	// [修正] ファイル名を push-metadata に変更
-	if err := os.WriteFile(filepath.Join(credentialsDir, "push-metadata"), []byte(signedVC), 0644); err != nil {
+	// [修正] 規格に準拠した JSON 形式でラップして保存
+	type CredentialResponse struct {
+		Credential string `json:"credential"`
+	}
+	resp := CredentialResponse{Credential: signedVC}
+	respData, err := json.MarshalIndent(resp, "", "  ")
+	if err != nil {
+		return fmt.Errorf("failed to marshal credential response: %w", err)
+	}
+
+	if err := os.WriteFile(filepath.Join(credentialsDir, "push-metadata"), respData, 0644); err != nil {
 		return fmt.Errorf("failed to write VC file: %w", err)
 	}
 

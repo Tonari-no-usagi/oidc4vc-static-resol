@@ -37,12 +37,14 @@ const htmlTemplate = `<!DOCTYPE html>
             credential_configuration_ids: [credentialConfigurationId],
             grants: {
                 "urn:ietf:params:oauth:grant-type:pre-authorized_code": {
-                    "pre-authorized_code": "TODO_RANDOM_CODE_OR_MOCK"
+                    "pre-authorized_code": "TODO_RANDOM_CODE_OR_MOCK",
+                    "user_pin_required": false // 下位互換性のため
                 }
             }
         };
 
-        const offerUrl = "openid-credential-offer://?credential_offer=" + encodeURIComponent(JSON.stringify(credentialOffer));
+        const offerJson = JSON.stringify(credentialOffer);
+        const offerUrl = "openid-credential-offer://?credential_offer=" + encodeURIComponent(offerJson);
         document.getElementById('btn-link').href = offerUrl;
 
         QRCode.toCanvas(document.getElementById('qrcode'), offerUrl, { width: 256 }, function (error) {
