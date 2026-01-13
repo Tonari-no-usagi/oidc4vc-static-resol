@@ -3,15 +3,15 @@
     "https://www.w3.org/ns/did/v1",
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
-  "id": "did:web:toshiki-honda.github.io:oidc4vc-test",
+  "id": "did:web:tonari-no-usagi.github.io:oidc4vc-static-resol",
   "verificationMethod": [
     {
-      "id": "did:web:toshiki-honda.github.io:oidc4vc-test#key-1",
+      "id": "did:web:tonari-no-usagi.github.io:oidc4vc-static-resol#key-1",
       "type": "JsonWebKey2020",
-      "controller": "did:web:toshiki-honda.github.io:oidc4vc-test"
+      "controller": "did:web:tonari-no-usagi.github.io:oidc4vc-static-resol"
     }
   ],
   "assertionMethod": [
-    "did:web:toshiki-honda.github.io:oidc4vc-test#key-1"
+    "did:web:tonari-no-usagi.github.io:oidc4vc-static-resol#key-1"
   ]
 }

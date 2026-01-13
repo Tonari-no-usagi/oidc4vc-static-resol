@@ -17,11 +17,11 @@
         <h1>VC発行デモ</h1>
         <p>ウォレットアプリで以下のQRコードをスキャンして、<br>デジタル資格情報を取得してください。</p>
         <div id="qrcode"></div>
-        <p><small>Issuer: https://toshiki-honda.github.io/oidc4vc-test</small></p>
-        <a href="openid-initiate-issuance://?issuer=https://toshiki-honda.github.io/oidc4vc-test&credential_configuration_id=UniversityDegree" class="btn">直接リンクを開く (モバイル用)</a>
+        <p><small>Issuer: https://tonari-no-usagi.github.io/oidc4vc-static-resol</small></p>
+        <a href="openid-initiate-issuance://?issuer=https://tonari-no-usagi.github.io/oidc4vc-static-resol&credential_configuration_id=UniversityDegree" class="btn">直接リンクを開く (モバイル用)</a>
     </div>
     <script>
-        const issuanceUrl = "openid-initiate-issuance://?issuer=https://toshiki-honda.github.io/oidc4vc-test&credential_configuration_id=UniversityDegree";
+        const issuanceUrl = "openid-initiate-issuance://?issuer=https://tonari-no-usagi.github.io/oidc4vc-static-resol&credential_configuration_id=UniversityDegree";
         QRCode.toCanvas(document.getElementById('qrcode'), issuanceUrl, { width: 256 }, function (error) {
             if (error) console.error(error);
         });

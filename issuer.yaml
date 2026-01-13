@@ -1,4 +1,4 @@
-issuer_url: "https://toshiki-honda.github.io/oidc4vc-test"
+issuer_url: "https://tonari-no-usagi.github.io/oidc4vc-static-resol"
 credential_definitions:
   - id: "UniversityDegree"
     format: "vc+sd-jwt"
